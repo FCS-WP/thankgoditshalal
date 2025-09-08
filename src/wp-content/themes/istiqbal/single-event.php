@@ -1,0 +1,77 @@
+<?php
+/*
+ * The template for displaying all single posts.
+ * Author & Copyright: wpoceans
+ * URL: http://themeforest.net/user/wpoceans
+ */
+get_header();
+	// Metabox
+	$istiqbal_id    = ( isset( $post ) ) ? $post->ID : 0;
+	$istiqbal_id    = ( is_home() ) ? get_option( 'page_for_posts' ) : $istiqbal_id;
+	$istiqbal_id    = ( is_woocommerce_shop() ) ? wc_get_page_id( 'shop' ) : $istiqbal_id;
+	$istiqbal_meta  = get_post_meta( $istiqbal_id, 'page_type_metabox', true );
+	if ( $istiqbal_meta ) {
+		$istiqbal_content_padding = $istiqbal_meta['content_spacings'];
+	} else { $istiqbal_content_padding = ''; }
+	// Padding - Metabox
+	if ( $istiqbal_content_padding && $istiqbal_content_padding !== 'padding-default' ) {
+		$istiqbal_content_top_spacings = $istiqbal_meta['content_top_spacings'];
+		$istiqbal_content_bottom_spacings = $istiqbal_meta['content_bottom_spacings'];
+		if ( $istiqbal_content_padding === 'padding-custom' ) {
+			$istiqbal_content_top_spacings = $istiqbal_content_top_spacings ? 'padding-top:'. istiqbal_check_px($istiqbal_content_top_spacings) .';' : '';
+			$istiqbal_content_bottom_spacings = $istiqbal_content_bottom_spacings ? 'padding-bottom:'. istiqbal_check_px($istiqbal_content_bottom_spacings) .';' : '';
+			$istiqbal_custom_padding = $istiqbal_content_top_spacings . $istiqbal_content_bottom_spacings;
+		} else {
+			$istiqbal_custom_padding = '';
+		}
+	} else {
+		$istiqbal_custom_padding = '';
+	}
+	// Theme Options
+	$istiqbal_sidebar_position = cs_get_option( 'event_sidebar_position' );
+	$istiqbal_single_comment = cs_get_option( 'event_comment_form' );
+	$istiqbal_sidebar_position = $istiqbal_sidebar_position ? $istiqbal_sidebar_position : 'sidebar-hide';
+	// Sidebar Position
+	if ( $istiqbal_sidebar_position === 'sidebar-hide' ) {
+		$istiqbal_layout_class = 'col-lg-12';
+		$istiqbal_sidebar_class = 'hide-sidebar';
+	} elseif ( $istiqbal_sidebar_position === 'sidebar-left' ) {
+		$istiqbal_layout_class = 'col col-lg-8 order-lg-2';
+		$istiqbal_sidebar_class = 'left-sidebar';
+	} else {
+		$istiqbal_layout_class = 'col col-lg-8';
+		$istiqbal_sidebar_class = 'right-sidebar';
+	} ?>
+<div class="event-single-section section-padding <?php echo esc_attr( $istiqbal_content_padding .' '. $istiqbal_sidebar_class ); ?>" style="<?php echo esc_attr( $istiqbal_custom_padding ); ?>">
+	<div class="container">
+		<div class="row">
+			<div class="<?php echo esc_attr( $istiqbal_layout_class ); ?>">
+				<div class="event-single-content">
+					<?php
+					if ( have_posts() ) :
+						/* Start the Loop */
+						while ( have_posts() ) : the_post();
+							if ( post_password_required() ) {
+									echo '<div class="password-form">'.get_the_password_form().'</div>';
+								} else {
+									get_template_part( 'theme-layouts/post/event', 'content' );
+									$istiqbal_single_comment = !$istiqbal_single_comment ? comments_template() : '';
+
+								}
+						endwhile;
+					else :
+						get_template_part( 'theme-layouts/post/content', 'none' );
+					endif; ?>
+				</div><!-- Blog Div -->
+				<?php
+		    wp_reset_postdata(); ?>
+			</div><!-- Content Area -->
+				<?php
+				if ( $istiqbal_sidebar_position !== 'sidebar-hide' ) {
+					get_sidebar(); // Sidebar
+				} ?>
+		</div>
+	</div>
+</div>
+<?php
+get_footer();
