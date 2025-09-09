@@ -1,0 +1,27 @@
+.text-box {
+    p {
+        color: #ffffff!important;
+        @include desktop {
+           width: 250px!important;
+        }
+    }
+}
+
+.heading-box-white {
+    span {
+        color: #ffffff!important;
+    }
+}
+
+.decs-form-contact {
+    p {
+        @include desktop {
+           width: 700px!important;
+        }
+    }
+}
+
+#btn-submit-form {
+    padding: 20px 30px!important;
+    border-radius: 0px!important;
+}

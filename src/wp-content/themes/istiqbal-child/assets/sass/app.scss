@@ -1,0 +1,50 @@
+@import "./_header.scss";
+@import "./components.scss";
+@import "./_footer.scss";
+@import "./pages/_about_us.scss";
+@import "./pages/_single_product.scss";
+@import "./pages/_contact_us.scss";
+@import "./pages/_shop.scss";
+
+.p-4 {
+    padding: 150px !important;
+}
+
+.title {
+    h1 {
+        @include desktop {
+            font-size: 50px!important;
+            font-weight: 700!important;
+            line-height: 80px!important;
+            text-transform: capitalize!important;
+            margin-bottom: 13px!important;
+        }
+
+        font-size: 30px!important;
+        font-weight: 700!important;
+        line-height: 45px!important;
+        text-transform: capitalize!important;
+        margin-bottom: 13px!important;
+    }
+}
+
+p {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.container-info-contact {
+    gap: 5px!important;
+}
+
+.text-phone {
+    a {
+        color: #000;
+    }
+}
+
+.text-primary {
+    p {
+        color: #db9e30!important;
+    }
+}
