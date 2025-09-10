@@ -54,6 +54,23 @@
             }
         }
     }
+
+    @include tablet {
+        width: 100%;
+
+        .img-about-1 {
+            max-width: 400px!important;
+        }
+
+        .img-about-2 {
+            max-width:300px!important;
+            bottom: -10%;
+
+            img {
+                border: 20px solid #fff;
+            }
+        }
+    }
 }
 
 .text-decs-about {
