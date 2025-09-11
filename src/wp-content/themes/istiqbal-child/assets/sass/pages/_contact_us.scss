@@ -7,20 +7,6 @@
     }
 }
 
-.heading-box-white {
-    span {
-        color: #ffffff!important;
-    }
-}
-
-.decs-form-contact {
-    p {
-        @include desktop {
-           width: 700px!important;
-        }
-    }
-}
-
 #btn-submit-form {
     padding: 20px 30px;
     border-radius: 0px;
