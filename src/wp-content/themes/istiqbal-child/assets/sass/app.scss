@@ -1,9 +1,9 @@
-@import "./_header.scss";
-@import "./components.scss";
-@import "./_footer.scss";
-@import "./pages/_about_us.scss";
-@import "./pages/_contact_us.scss";
-@import "./pages/_shop.scss";
+@import "./header";
+@import "./components";
+@import "./footerx";
+@import "./pages/about_us";
+@import "./pages/contact_us";
+@import "./pages/shop";
 
 .p-4 {
     padding: 150px !important;
