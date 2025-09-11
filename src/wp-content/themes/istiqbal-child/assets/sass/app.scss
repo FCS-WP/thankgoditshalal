@@ -1,0 +1,19 @@
+@import "./header";
+@import "./components";
+@import "./footer";
+@import "./pages/about_us";
+@import "./pages/contact_us";
+@import "./pages/shop";
+@import "./pages/home_page";
+
+p {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+
+.text-primary {
+    p {
+        color: #db9e30!important;
+    }
+}

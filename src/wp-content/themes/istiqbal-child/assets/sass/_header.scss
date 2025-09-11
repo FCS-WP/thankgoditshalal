@@ -1,0 +1,9 @@
+body.home {
+  #header-custom {
+    background-color: white;
+
+    @include desktop {
+      background-color: #fffdf2;
+    }
+  }
+}

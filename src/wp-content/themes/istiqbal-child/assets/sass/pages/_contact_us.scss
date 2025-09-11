@@ -1,0 +1,13 @@
+.text-box {
+    p {
+        color: #ffffff;
+        @include desktop {
+           width: 250px!important;
+        }
+    }
+}
+
+#btn-submit-form {
+    padding: 20px 30px;
+    border-radius: 0px;
+}

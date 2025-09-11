@@ -1,0 +1,50 @@
+.container-img-product {
+  position: relative;
+  display: inline-block;
+}
+
+.img-product {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.img-product::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container-img-product:hover .img-product::after {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.container-img-product:hover .img-product::after {
+  opacity: 1;
+}
+
+.btn-add-to-cart {
+  position: absolute!important;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+  z-index: 2;
+}
+
+.container-img-product:hover .btn-add-to-cart {
+  opacity: 1;
+  pointer-events: auto;
+}
